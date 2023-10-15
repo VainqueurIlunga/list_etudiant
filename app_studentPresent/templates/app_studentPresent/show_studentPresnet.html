@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre"><a href="#"> Dashboard</a>
+            </li>
+            <li class="page-back"><a href="add_new"><i class="fa fa-backward" aria-hidden="true"></i> add new</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <h4>Course Details</h4>
+                        <p>All about courses, program structure, fees, best course lists (ranking), syllabus, teaching techniques and other details.</p>
+                    </div>
+                    <div class="tab-inn">
+                        <div class="table-responsive table-desi">
+                            
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Postnom</th>
+                                        <th>Prenom</th>
+                                        <th>Promotion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                       
+                                    </tr>
+                                   
+                                    
+                                            <span class="label label-success">Active</span>
+                                        </td>
+                                        <td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="list-img"><img src="images/course/sm-4.jpg" alt=""></span>
+                                        </td>
+                                        <td><a href="admin-course-details.html"><span class="list-enq-name">Building, Construction Management</span><span class="list-enq-city">Illunois, United States</span></a>
+                                        </td>
+                                        <td>Construction</td>
+                                        <td>1 Year</td>
+                                        <td>05 Mar 2018</td>
+                                        <td>16 Mar 2018</td>
+                                        <td>72</td>
+                                        <td>
+                                            <span class="label label-success">Active</span>
+                                        </td>
+                                        <td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
+                                    </tr>
+                                </tbody>
+                            
+                            </table>
+                            {% else  %}
+                            <h4 class="text-center alert alert-warning">0 enregistrement</h4>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
