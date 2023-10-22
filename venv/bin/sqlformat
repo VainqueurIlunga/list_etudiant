@@ -1,4 +1,4 @@
-#!/home/vainqueur/Documents/dev_dj/App_restaurant/venv/bin/python3
+#!/home/vainqueur/Documents/Project_program/dev_dj/list_etudiant/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
