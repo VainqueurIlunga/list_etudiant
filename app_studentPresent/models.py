@@ -51,5 +51,5 @@ class Participation(models.Model):
     cours = models.ForeignKey(Courses, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.etudiant} /{self.etudiant.promo} / {self.cours}/{self.date}"
+        return f"{self.etudiant.name} / {self.cours}/{self.date}"
     
