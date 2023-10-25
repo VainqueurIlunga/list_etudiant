@@ -5,9 +5,9 @@ from ..models import *
 class faculteRegistration(forms.ModelForm):
     class Meta:
         model = Faculte
-        fields = ['libelle',]
+        fields = ['nom_fac']
         widgets = {
-            'libelle': forms.TextInput(attrs={'class':'form-control'}),
+            'nom_fac': forms.TextInput(attrs={'class':'form-control'}),
 
         }
     

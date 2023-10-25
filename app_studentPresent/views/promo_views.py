@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import TemplateView
-from ..models import Filliere
-from ..forms.filliere_forms import fillierRegistration
+from ..models import Promotion
+from ..forms.promo_forms import promoRegistration
 # Create your views here.
 """class AddNewStudent(TemplateView):
     template_name='app_studentPresent/add_participation.html'
@@ -14,41 +14,40 @@ from ..forms.filliere_forms import fillierRegistration
         return context 
 """
 # cette fonction permet d'ajoputer et d'afficher les information
-def addNewfil(request, template_name='app_studentPresent/filliere/add_filliere.html'):
+def AddNewpromo(request, template_name='app_studentPresent/promotion/add_promotion.html'):
     
     if request.method == 'POST': 
-        fm = fillierRegistration(request.POST)
+        fm = promoRegistration(request.POST)
         if fm.is_valid():
-            lbl = fm.cleaned_data['nom_fil']
-            fc= fm.cleaned_data['fac']
-            reg = Filliere(nom_fil = lbl, fac = fc)
+            lb = fm.cleaned_data['nom_pro']
+            fil= fm.cleaned_data['filliere']
+            reg = Promotion(libelle = lb, filliere = fil,)
             reg.save()
              
-            fm=fillierRegistration()
+            fm=promoRegistration()
     else:
-        fm = fillierRegistration()
-    fil= Filliere.objects.all()
-    return render(request, template_name, {'form':fm,'fill':fil})
-
+        fm = promoRegistration()
+    promo= Promotion.objects.all()
+    return render(request, template_name, {'form':fm,'promo':promo})
 # modifier les informations 
 
-def update_data_fil(request,id,template_name='app_studentPresent/filliere/updatefilliere.html'):
+def update_data_pro(request,id,template_name='app_studentPresent/promotion/updatepromotion.html'):
     if request.method=='POST':
-        pi = Filliere.objects.get(pk=id)
-        fm = fillierRegistration(request.POST, instance=pi) 
+        pi = Promotion.objects.get(pk=id)
+        fm = promoRegistration(request.POST, instance=pi) 
         if fm.is_valid():
             fm.save()
     else:
-        pi = Filliere.objects.get(pk=id)   
-        fm=fillierRegistration(instance=pi)    
+        pi = Promotion.objects.get(pk=id)   
+        fm=promoRegistration(instance=pi)    
     return render (request, template_name,{'form':fm})   
 
 
 # cette fontion permet de supprimer les informatiosn de la base de données
-def delete_data_fil(request,id):
+def delete_data_pro(request,id):
     if request.method == 'POST':
-        pi = Filliere.objects.get(pk=id)
+        pi = Promotion.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/add_new_fil')
+        return HttpResponseRedirect('/add_new_pro')
     
     

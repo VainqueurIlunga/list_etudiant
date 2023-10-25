@@ -51,8 +51,8 @@
                                 {% for fil in fill  %}
                                 <tr>
                                     <td>{{fil.id}}</td>
-                                    <td>{{fil.libelle}}</td>
-                                    <td>{{fil.faculte}}</td>
+                                    <td>{{fil.nom_fil}}</td>
+                                    <td>{{fil.fac}}</td>
                                     <td>
                                         <a href="{% url 'updatedata_fil' fil.id %}" class"btn btn-warning btn-sm">Modifier</a>
                                         <form action="{% url 'deletedata_fac' fil.id %}" method="post" class="d-inline">

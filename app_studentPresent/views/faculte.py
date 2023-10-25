@@ -19,8 +19,8 @@ def addNewfac(request, template_name='app_studentPresent/faculte/add_faculte.htm
     if request.method == 'POST': 
         fm = faculteRegistration(request.POST)
         if fm.is_valid():
-            lbl = fm.cleaned_data['libelle']
-            reg = Faculte(libelle = lbl)
+            lbl = fm.cleaned_data['nom_fac']
+            reg = Faculte(nom_fac = lbl)
             reg.save()
              
             fm=faculteRegistration()

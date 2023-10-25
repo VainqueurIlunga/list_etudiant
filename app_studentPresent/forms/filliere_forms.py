@@ -5,9 +5,9 @@ from ..models import *
 class fillierRegistration(forms.ModelForm):
     class Meta:
         model = Filliere
-        fields = ['libelle','faculte',]
+        fields = ['nom_fil','fac']
         widgets = {
-            'libelle': forms.TextInput(attrs={'class':'form-control'}),
-            'faculte': forms.TextInput(attrs={'class':'form-control'}),
+            'nom_fil': forms.TextInput(attrs={'class':'form-control'}),
+            'fac': forms.TextInput(attrs={'class':'form-control'}),
         }
     

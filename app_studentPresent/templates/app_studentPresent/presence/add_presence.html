@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre"><a href="#"> Add new student</a>
+            </li>
+            <li class="page-back"><a href="show"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Add New presence Informations</h4>
+                    </div>
+                    <div class="tab-inn">
+                        <form action ="" method="POST">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                </div>
+                            </div>
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <input type="submit" class="btn btn-success" value ="Ajouter">
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-inn">
+                    <div class="table-responsive table-desi">
+                        {% if present %}
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Etudiant</th>
+                                    <th>Cours</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                                {% for pre in present %}
+                                <tr>
+                                    <td>{{pre.id}}</td>
+                                    <td>{{pre.etudiant}}</td>
+                                    <td>{{pre.cours}}</td>
+                                    <td>1{{pre.date}}</td>
+                                    <td>
+                                        <a href="{% url 'updatedata_pre' pre.id %}" class="btn btn-warning btn-sm">Modifier</a>
+                                        <form action="{% url 'deletedata_pre' pre.id %}" method="post" class="d-inline">
+                                            {% csrf_token %}
+                                            <input type="submit" class="btn btn-danger" value="Supprimer">
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else  %}
+                        <h4 class="text-center alert alert-warning">0 enregistrement</h4>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

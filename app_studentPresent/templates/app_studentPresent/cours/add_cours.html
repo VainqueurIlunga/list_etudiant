@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="active-bre"><a href="#"> Add new student</a>
+            </li>
+            <li class="page-back"><a href="show"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Add New Courses Informations</h4>
+                    </div>
+                    <div class="tab-inn">
+                        <form action ="" method="POST">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                </div>
+                            </div>
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <input type="submit" class="btn btn-success" value ="Ajouter">
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-inn">
+                    <div class="table-responsive table-desi">
+                        {% if cours %}
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Intitule</th>
+                                    <th>Enseignant</th>
+                                    <th>Promotion</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                                {% for cr in cours %}
+                                <tr>
+                                    <td>{{cr.id}}</td>
+                                    <td>{{cr.title}}</td>
+                                    <td>{{cr.enseignant}}</td>
+                                    <td>1{{cr.promo}}</td>
+                                    <td>
+                                        <a href="{% url 'updatedata_cr' cr.id %}" class="btn btn-warning btn-sm">Modifier</a>
+                                        <form action="{% url 'deletedata_cr' cr.id %}" method="post" class="d-inline">
+                                            {% csrf_token %}
+                                            <input type="submit" class="btn btn-danger" value="Supprimer">
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else  %}
+                        <h4 class="text-center alert alert-warning">0 enregistrement</h4>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

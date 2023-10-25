@@ -3,24 +3,24 @@ from .models import Etudiant, Participation, Courses, Faculte, Promotion, Fillie
 # Register your models here.
 @admin.register(Faculte)
 class FacAdmin(admin.ModelAdmin):
-    list_display = ('id', 'libelle',)
+    list_display = ('id','nom_fac')
 
 @admin.register(Filliere)
 class FilAdmin(admin.ModelAdmin):
-    list_display = ('id', 'libelle','faculte')
+    list_display = ('id','nom_fil','fac')
 
 
 @admin.register(Promotion)
 class PromoAdmin(admin.ModelAdmin):
-    list_display = ('id','libelle', 'filliere',)
+    list_display = ('id','nom_pro','fil',)
 
 @admin.register(Enseignant)
 class EnseiAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+    list_display = ('id', 'name','fistname','lastname','adresse')
 
 @admin.register(Courses)
 class CoursesAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title')
+    list_display = ('id', 'title','promo','enseignant')
 
 
 @admin.register(Etudiant,)
